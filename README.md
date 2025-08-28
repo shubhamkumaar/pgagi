@@ -8,7 +8,7 @@
 *   **Interactive Chat Interface**: A responsive and intuitive user interface built with React and TypeScript for seamless user interaction.
 *   **Real-time Communication**: Leverages WebSockets for instant message sending and receiving, ensuring a dynamic chat experience.
 *   **AI-Powered Responses**: Integrates with the Google Gemini API to provide intelligent and context-aware bot responses.
-*   **DDL to SQL Script Generation**: Processes Data Definition Language (DDL) statements to generate comprehensive SQL scripts, including random data generation and marker replacement for various data types.
+
 *   **Dynamic Session Management**: The backend efficiently manages active WebSocket connections and their individual conversational states.
 *   **User Experience Enhancements**: Includes features like automatic chat scroll to bottom, real-time connection status display, and UI theme management.
 
