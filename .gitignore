@@ -122,3 +122,5 @@ coverage/
 # yarn.lock
 # pnpm-lock.yaml
 
+# Auto-Docs
+auto-docs-output/

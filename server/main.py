@@ -1,4 +1,3 @@
-import os
 import logging
 from typing import Dict, Any
 
@@ -6,7 +5,6 @@ from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.responses import HTMLResponse
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
-import google.generativeai as genai
 
 from llms.gemini import get_next_bot_response, REQUIRED_FIELDS
 
