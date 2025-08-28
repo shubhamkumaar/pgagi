@@ -57,7 +57,7 @@ export default function App() {
       setIsConnecting(false);
       setMessages(prev => [...prev, { 
         sender: 'System', 
-        text: 'Connection error. Please check your network and try agPGAGIn.', 
+        text: 'Connection error. Please check your network and try again.', 
         timestamp: new Date() 
       }]);
     };
@@ -90,7 +90,9 @@ export default function App() {
       }]);
       setInput('');
       setIsTyping(true);
-      
+      if (inputRef.current) {
+        inputRef.current.style.height = "56px";
+      }
       setTimeout(() => {
         inputRef.current?.focus();
       }, 100);
@@ -331,20 +333,36 @@ export default function App() {
         {/* Input Area */}
         <footer className={`${themeClasses.cardBg} ${themeClasses.border} border-t p-6 shadow-2xl backdrop-blur-sm`}>
           <div className="max-w-5xl mx-auto">
-            <form onSubmit={sendMessage} className="flex items-end gap-4">
+            <div className="flex items-end gap-4">
               <div className="flex-1">
                 <div className="relative">
-                  <input
-                    ref={inputRef}
-                    type="text"
+                  <textarea
+                    ref={inputRef as any}
                     value={input}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setInput(e.target.value)}
-                    placeholder="Type your message here..."
-                    className={`w-full px-6 py-4 ${themeClasses.inputBg} ${themeClasses.border} border-2 rounded-2xl focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-200 ${themeClasses.text} placeholder-gray-400 shadow-sm`}
+                    onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setInput(e.target.value)}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' && !e.shiftKey) {
+                        e.preventDefault();
+                        sendMessage(e as any);
+                      }
+                    }}
+                    placeholder="Type your message here... (Shift + Enter for new line)"
+                    className={`w-full px-6 py-4 ${themeClasses.inputBg} ${themeClasses.border} border-2 rounded-2xl focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-200 ${themeClasses.text} placeholder-gray-400 shadow-sm resize-none overflow-hidden min-h-[56px] max-h-[200px]`}
                     autoComplete="off"
                     disabled={!ws.current || ws.current.readyState !== WebSocket.OPEN}
+                    rows={1}
+                    style={{
+                      height: 'auto',
+                      minHeight: '56px',
+                      maxHeight: '200px',
+                    }}
+                    onInput={(e: React.FormEvent<HTMLTextAreaElement>) => {
+                      const textarea = e.currentTarget;
+                      textarea.style.height = 'auto';
+                      textarea.style.height = Math.min(textarea.scrollHeight, 200) + 'px';
+                    }}
                   />
-                  <div className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-gray-400">
+                  <div className="absolute right-3 bottom-3 text-xs text-gray-400 flex items-center space-x-2">
                     {input.length > 0 && (
                       <span className="bg-gray-500/20 px-2 py-1 rounded-full">
                         {input.length}
@@ -355,8 +373,8 @@ export default function App() {
               </div>
               
               <button
-                type="submit"
-                className={`px-6 py-4 rounded-2xl font-semibold transition-all duration-200 flex items-center gap-3 shadow-lg ${
+                onClick={(e) => sendMessage(e as any)}
+                className={`px-6 py-4 rounded-2xl font-semibold transition-all duration-200 flex items-center gap-3 shadow-lg self-end ${
                   input.trim() && ws.current && ws.current.readyState === WebSocket.OPEN
                     ? 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-blue-500/25 hover:shadow-xl hover:scale-105 active:scale-95' 
                     : `${themeClasses.bgTertiary} ${themeClasses.textMuted} cursor-not-allowed opacity-50`
@@ -366,11 +384,11 @@ export default function App() {
                 <Send className="w-5 h-5" />
                 <span>Send</span>
               </button>
-            </form>
+            </div>
             
             <div className="mt-4 text-center">
               <p className={`text-xs ${themeClasses.textMuted} flex items-center justify-center space-x-2`}>
-                <span>Press Enter to send</span>
+                <span>Enter to send • Shift + Enter for new line</span>
                 <span>•</span>
                 <span>Powered by WebSocket</span>
                 <span>•</span>
