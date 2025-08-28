@@ -1,13 +1,3 @@
-# main.py
-# To run this:
-# 1. Create the gemini_processor.py file in the same directory.
-# 2. Install dependencies:
-#    pip install fastapi "uvicorn[standard]" websockets google-generativeai python-dotenv
-# 3. Create a .env file in the same directory and add your API key:
-#    GEMINI_API_KEY="YOUR_API_KEY_HERE"
-# 4. Run the server:
-#    uvicorn main:app --reload --host 0.0.0.0
-
 import os
 import logging
 from typing import Dict, Any
@@ -19,7 +9,7 @@ from dotenv import load_dotenv
 import google.generativeai as genai
 
 # Import the processor function and required fields list
-from LLMs.gemini import get_next_bot_response, REQUIRED_FIELDS
+from llms.gemini import get_next_bot_response, REQUIRED_FIELDS
 
 # --- Configuration ---
 load_dotenv()

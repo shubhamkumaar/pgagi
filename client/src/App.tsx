@@ -1,27 +1,21 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-// Define a type for the message objects for better type safety
 interface Message {
   sender: 'You' | 'Bot' | 'System';
   text: string;
 }
 
-// Main App Component
 export default function App(){
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState<string>('');
   const [clientId] = useState<number>(Math.floor(new Date().getTime() / 1000));
   const [isConnecting, setIsConnecting] = useState<boolean>(true);
   
-  // Ref for the WebSocket instance. It can be null initially.
   const ws = useRef<WebSocket | null>(null);
   
-  // Ref for the div at the end of the messages list to enable auto-scrolling
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    // Initialize WebSocket connection
-    // Use ws:// for local development, wss:// for production with HTTPS
     const serverUrl = `ws://localhost:8000/ws/${clientId}`;
     ws.current = new WebSocket(serverUrl);
 
@@ -48,10 +42,8 @@ export default function App(){
       setMessages(prev => [...prev, { sender: 'System', text: 'Connection error. See console for details.' }]);
     };
 
-    // Store the current WebSocket instance to use in the cleanup function
     const currentWs = ws.current;
 
-    // Cleanup on component unmount
     return () => {
       if (currentWs) {
         currentWs.close();
