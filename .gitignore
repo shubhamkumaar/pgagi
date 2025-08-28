@@ -1,0 +1,124 @@
+# .gitignore for a FastAPI and React+Vite project
+
+# --- General ---
+# Operating System generated files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# IDE/Editor directories
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# --- Python / FastAPI ---
+
+# Virtual Environment
+# Use the name of your virtual environment directory if it's different
+venv/
+.venv/
+env/
+.env/
+venv.bak/
+.env.bak/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Instance folder
+instance/
+
+# PyInstaller
+# Usually these files are created by pyinstaller, if you are using it
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Environment variables
+# IMPORTANT: Never commit your .env files
+.env
+.env.*
+
+# --- JavaScript / Node / React + Vite ---
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Build output
+dist/
+dist-ssr/
+.output/
+.next/
+
+# Vite specific
+.vite/
+# Optional: if you use TypeScript and want to ignore compiled files
+# *.tsbuildinfo
+
+# Local environment variables
+# IMPORTANT: Never commit your local environment files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Lockfiles (optional, but often good to commit)
+# If you want to ignore them, uncomment the following lines:
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
