@@ -8,20 +8,12 @@ from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 import google.generativeai as genai
 
-# Import the processor function and required fields list
 from llms.gemini import get_next_bot_response, REQUIRED_FIELDS
 
 # --- Configuration ---
 load_dotenv()
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
-
-# Configure the Gemini API globally when the app starts
-try:
-    genai.configure(api_key=os.environ["GEMINI_API_KEY"])
-    logger.info("Gemini API configured successfully.")
-except KeyError:
-    logger.error("FATAL: GEMINI_API_KEY environment variable not set.")
 
 
 # --- Application Setup ---
@@ -118,4 +110,4 @@ async def websocket_endpoint(websocket: WebSocket, client_id: int):
 
 @app.get("/")
 async def get():
-    return HTMLResponse("<h2>TalentScout Hiring Assistant WebSocket Server is running.</h2>")
+    return HTMLResponse("<h2>PGAGI Hiring Assistant WebSocket Server is running.</h2>")

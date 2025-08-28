@@ -1,5 +1,3 @@
-# gemini_processor.py
-
 import os
 import logging
 from typing import Dict, Any
