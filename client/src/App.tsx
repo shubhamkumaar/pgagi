@@ -33,7 +33,7 @@ export default function App() {
   const inputRef = useRef<HTMLTextAreaElement | null>(null);
 
   useEffect(() => {
-    const serverUrl = `ws://localhost:8000/ws/${clientId}`;
+    const serverUrl = `wss://shubkr-talentscout.hf.space/ws/${clientId}`;
     ws.current = new WebSocket(serverUrl);
 
     ws.current.onopen = () => {
