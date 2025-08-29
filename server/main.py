@@ -83,7 +83,7 @@ manager = ConnectionManager()
 # --- API Endpoints ---
 
 @app.websocket("/ws/{client_id}")
-async def websocket_endpoint(websocket: WebSocket, client_id: int):
+async def websocket_endpoint(websocket: WebSocket, client_id: str):
     """Main WebSocket endpoint for handling the chat conversation."""
     await manager.connect(websocket)
     try:
