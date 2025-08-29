@@ -1,8 +1,8 @@
 
-# pgagi-bot
+# TalentScout
 
 ## Summary
-`pgagi-bot` is a full-stack AI chatbot application designed to provide an interactive chat interface for users to communicate with a Gemini-powered assistant. The application supports advanced functionalities such as generating SQL scripts from DDL statements and manages real-time conversations using WebSockets.
+`TalentScout` is a full-stack AI chatbot application designed to provide an interactive chat interface for users to communicate with a Gemini-powered assistant. The application supports advanced functionalities such as generating SQL scripts from DDL statements and manages real-time conversations using WebSockets.
 
 ## Key Features
 *   **Interactive Chat Interface**: A responsive and intuitive user interface built with React and TypeScript for seamless user interaction.
@@ -18,12 +18,12 @@
 
 ## Installation
 
-To get `pgagi-bot` up and running, follow these steps:
+To get `TalentScout` up and running, follow these steps:
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/your-username/pgagi-bot.git
-cd pgagi-bot
+git clone https://github.com/shubhamkumaar/talentscout
+cd talentscout
 ```
 
 ### 2. Backend Setup
@@ -47,7 +47,7 @@ The frontend application will typically be accessible at `http://localhost:5173`
 ## Folder Structure
 
 ```
-pgagi-bot/
+talentscout/
 ├── client/                     # Frontend application
 │   ├── public/                 # Static assets
 │   ├── src/                    # Source files
@@ -64,10 +64,3 @@ pgagi-bot/
 
 ## API Documentation
 Detailed API endpoints and their functionalities will be documented here. The primary interaction is via a WebSocket endpoint for chat functionality.
-
-## Contributing
-Contributions are welcome! Please refer to the `CONTRIBUTING.md` file for guidelines on how to contribute to this project.
-
-## License
-This project is licensed under the MIT License.
-```

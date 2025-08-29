@@ -43,7 +43,7 @@ export default function App() {
         ...prev,
         {
           sender: "System",
-          text: "Connected to PGAGI Assistant! How can I help you today?",
+          text: "Connected to TalentScout Assistant! How can I help you today?",
           timestamp: new Date(),
         },
       ]);
@@ -223,7 +223,7 @@ export default function App() {
                 <h1
                   className={`text-xl font-bold ${themeClasses.text} tracking-tight`}
                 >
-                  PGAGI Assistant
+                  TalentScout Assistant
                 </h1>
                 <p className={`text-sm ${themeClasses.textMuted}`}>
                   Intelligent Chat Interface
@@ -321,7 +321,7 @@ export default function App() {
         </div>
       </div>
 
-      {/* PGAGI Chat Area */}
+      {/* TalentScout Chat Area */}
       <div className="flex-1 flex flex-col">
         {/* Chat Header */}
         <header
@@ -332,7 +332,7 @@ export default function App() {
               <h2
                 className={`text-2xl font-bold ${themeClasses.text} tracking-tight`}
               >
-                PGAGI Assistant Chat
+                TalentScout Assistant Chat
               </h2>
               <p className={`text-sm ${themeClasses.textMuted} mt-1`}>
                 Ask me anything and I'll provide intelligent responses
@@ -371,7 +371,7 @@ export default function App() {
                     <h3
                       className={`text-2xl font-bold ${themeClasses.text} mb-3`}
                     >
-                      Welcome to PGAGI Assistant
+                      Welcome to TalentScout Assistant
                     </h3>
                     <p
                       className={`${themeClasses.textMuted} text-lg leading-relaxed`}
